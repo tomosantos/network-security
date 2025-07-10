@@ -27,7 +27,7 @@ class DataIngestion:
         except Exception as e:
             raise NetworkSecurityException(e, sys)
         
-    def export_collection_as_dataframe(self):
+    def export_collection_as_dataframe(self) -> pd.DataFrame:
         '''
             Read data from MongoDB
         '''
@@ -48,7 +48,7 @@ class DataIngestion:
         except Exception as e:
             raise NetworkSecurityException(e, sys)
         
-    def export_data_into_feature_store(self, dataframe: pd.DataFrame):
+    def export_data_into_feature_store(self, dataframe: pd.DataFrame) -> pd.DataFrame:
         try:
             feature_store_file_path = self.data_ingestion_config.feature_store_file_path
 
@@ -91,7 +91,7 @@ class DataIngestion:
         except Exception as e:
             raise NetworkSecurityException(e, sys)
 
-    def initiate_data_ingestion(self):
+    def initiate_data_ingestion(self) -> DataIngestionArtifact:
         try:
             df = self.export_collection_as_dataframe()
             df = self.export_data_into_feature_store(df)

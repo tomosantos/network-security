@@ -2,4 +2,5 @@ venv/
 .env
 logs/
 __pycache__/
-icons
+icons/
+scenes/

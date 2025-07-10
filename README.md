@@ -1,11 +1,16 @@
 ## Network Security Project For Phishing Data
 
 
-### 1. ETL Architecture
+### 1. Architecture
 
-![ETL Pipeline](assets/etl-pipeline.png)
+![Pipeline](assets/etl-pipeline.png)
 
 
 ### 2. Data Ingestion
 
 ![Data Ingestion](assets/data-ingestion.png)
+
+
+### 3. Data Validation
+
+![Data Validation](assets/data-validation.png)
