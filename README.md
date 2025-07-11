@@ -19,3 +19,8 @@
 ### 4. Data Transformation
 
 ![Data Transformation](assets/data-transformation.png)
+
+
+### 5. Model Trainer
+
+![Model Trainer](assets/model-trainer.png)

@@ -8,5 +8,7 @@ scikit-learn
 scipy
 dill
 pyaml
+mlflow<3
+dagshub
 
 # -e .

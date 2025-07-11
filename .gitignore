@@ -4,3 +4,5 @@ logs/
 __pycache__/
 icons/
 scenes/
+artifacts/
+model/

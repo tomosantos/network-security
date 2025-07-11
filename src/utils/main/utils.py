@@ -9,6 +9,9 @@ import pickle
 import numpy as np
 import pandas as pd
 
+from sklearn.metrics import roc_auc_score
+from sklearn.model_selection import RandomizedSearchCV
+
 ## Yaml related functions
 def read_yaml_file(file_path: str) -> dict:
     try:
@@ -82,5 +85,43 @@ def load_object(file_path: str) -> object:
         with open(file_path, 'rb') as file_obj:
             print(file_obj)
             return pickle.load(file_obj)
+    except Exception as e:
+        raise NetworkSecurityException(e, sys)
+
+## Evaluate model
+def evaluate_models(X_train, y_train, X_test, y_test, models, params):
+    """
+    Evaluate multiple classification models using RandomizedSearchCV for hyperparameter tuning.
+    X_train, y_train: Training data
+    X_test, y_test: Testing data
+    models: Dictionary of models to evaluate
+    params: Dictionary of hyperparameters for each model
+    """
+    try:
+        report = dict()
+
+        for model_name, model in models.items():
+            logging.info(f'Evaluating model: {model_name}')
+
+            param_grid = params[model_name]
+            
+            rs = RandomizedSearchCV(estimator=model, param_distributions=param_grid, n_iter=60, 
+                                    scoring='roc_auc', cv=3, verbose=2, random_state=42, n_jobs=-1)
+            rs.fit(X_train, y_train)
+
+            model.set_params(**rs.best_params_)
+            model.fit(X_train, y_train)
+
+            y_train_pred = model.predict(X_train)
+            y_test_pred = model.predict(X_test)
+
+            train_model_score = roc_auc_score(y_train, y_train_pred)
+            test_model_score = roc_auc_score(y_test, y_test_pred)
+
+            # save score in the report
+            report[model_name] = test_model_score
+            logging.info(f'Model: {model_name}, Best Score: {test_model_score}, Best Params: {rs.best_params_}')
+
+        return report
     except Exception as e:
         raise NetworkSecurityException(e, sys)
