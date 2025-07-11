@@ -14,3 +14,8 @@
 ### 3. Data Validation
 
 ![Data Validation](assets/data-validation.png)
+
+
+### 4. Data Transformation
+
+![Data Transformation](assets/data-transformation.png)
