@@ -1,6 +1,6 @@
-## Network Security Project For Phishing Data
+# Network Security Project For Phishing Data
 
-### 1. Overview
+## 1. Overview
 
 This project is a comprehensive machine learning solution for detecting phishing attempts using industry data engineering and MLOps practices. The system implements an end-to-end pipeline that processes phishing data, validates data quality, transforms features, and trains machine learning models with automated deployment capabilities.
 
@@ -18,7 +18,7 @@ The main features include:
 
 - **Real-time Inference**: FastAPI-based web service for real-time phishing prediction
 
-### 2. Architecture
+## 2. Architecture
 
 The project follows a modular microservices architecture with cloud-native deployment strategies. The system is designed for scalability, maintainability, and automated operations. Below is the visual representation of the complete ETL pipeline:
 
@@ -28,13 +28,13 @@ The project follows a modular microservices architecture with cloud-native deplo
 
 - **Data Layer**: MongoDB for data storage with AWS S3 for artifact management
 - **Processing Layer**: Modular Python components for each pipeline stage
-- **ML Operations**: MLflow and DagHub integration for experiment tracking
+- **ML Operations**: MLflow and DagsHub integration for experiment tracking
 - **Deployment Layer**: Docker containerization with AWS ECR/EC2 deployment
 - **API Layer**: FastAPI for real-time inference and web interface
 
-### 3. Features
+## 3. Features
 
-#### Data Ingestion
+### 3.1 Data Ingestion
 
 - **MongoDB Integration**: Connects to MongoDB Atlas for data retrieval using pymongo
 - **Data Export**: Converts CSV data to JSON format for database storage
@@ -43,7 +43,7 @@ The project follows a modular microservices architecture with cloud-native deplo
 
 ![Data Ingestion](assets/data-ingestion.png)
 
-#### Data Validation
+### 3.2 Data Validation
 
 - **Schema Validation**: YAML-based schema validation for data consistency
 - **Data Drift Detection**: Statistical drift detection using Kolmogorov-Smirnov test
@@ -52,7 +52,7 @@ The project follows a modular microservices architecture with cloud-native deplo
 
 ![Data Validation](assets/data-validation.png)
 
-#### Data Transformation
+### 3.3 Data Transformation
 
 - **Feature Engineering**: Advanced preprocessing techniques for optimal model performance
 - **Missing Value Imputation**: KNN-based imputation for handling missing values
@@ -61,7 +61,7 @@ The project follows a modular microservices architecture with cloud-native deplo
 
 ![Data Transformation](assets/data-transformation.png)
 
-#### Model Trainer
+#### 3.4 Model Trainer
 
 - **Multi-Algorithm Training**: Support for multiple ML algorithms (Random Forest, Gradient Boosting, etc.)
 - **Hyperparameter Tuning**: Automated parameter optimization for best performance
@@ -70,21 +70,21 @@ The project follows a modular microservices architecture with cloud-native deplo
 
 ![Model Trainer](assets/model-trainer.png)
 
-### 4. Solutions Implemented
+## 4. Solutions Implemented
 
-#### MLOps and Experiment Tracking
+### 4.1 MLOps and Experiment Tracking
 
 - **MLflow Integration**: Complete experiment tracking with metrics, parameters, and model artifacts
 - **DagHub Integration**: Centralized model registry and collaboration platform
 - **Model Versioning**: Automated model versioning and comparison capabilities
 
-#### Cloud Infrastructure
+### 4.2 Cloud Infrastructure
 
 - **AWS S3 Integration**: Artifact storage and synchronization with S3 buckets
 - **AWS ECR**: Container registry for Docker image management
 - **AWS EC2**: Production deployment on EC2 instances with auto-scaling capabilities
 
-#### DevOps and CI/CD
+### 4.3 DevOps and CI/CD
 
 - **GitHub Actions**: Automated CI/CD pipeline with three stages:
   - Continuous Integration: Code linting and unit testing
@@ -93,44 +93,44 @@ The project follows a modular microservices architecture with cloud-native deplo
 - **Docker Containerization**: Multi-stage builds for optimized container images
 - **Environment Management**: Secure environment variable handling with GitHub Secrets
 
-#### Data Engineering
+### 4.4 Data Engineering
 
 - **MongoDB Atlas**: Cloud database integration with SSL/TLS encryption
 - **Data Pipeline Orchestration**: Automated pipeline execution with comprehensive logging
 - **Error Handling**: Custom exception handling with detailed error tracking
 - **Configuration Management**: YAML-based configuration with environment-specific settings
 
-### 5. Technologies Used
+## 5. Technologies Used
 
-#### Core Technologies
+### 5.1 Core Technologies
 
 - **Python 3.10**: Primary programming language with modern features
 - **FastAPI**: High-performance web framework for API development
 - **Scikit-learn**: Machine learning library for model training and evaluation
 - **Pandas & Numpy**: Data manipulation and numerical computing
 
-#### Database and Storage
+### 5.2 Database and Storage
 
 - **MongoDB Atlas**: Cloud-based NoSQL database with PyMongo driver
 - **AWS S3**: Object storage for artifacts and model persistence
 - **YAML**: Configuration and schema definition
 
-#### MLOps Stack
+### 5.3 MLOps Stack
 
 - **MLflow**: Experiment tracking, model registry, and deployment
-- **DagHub**: Collaborative platform for data science and MLOps
+- **DagsHub**: Collaborative platform for data science and MLOps
 - **Docker**: Containerization for consistent deployments
 
-#### Cloud and DevOps
+### 5.4 Cloud and DevOps
 
 - **AWS ECR**: Elastic Container Registry for Docker images
 - **AWS EC2**: Compute instances for production deployment
 - **GitHub Actions**: CI/CD automation and workflow management
 - **AWS CLI**: Command-line interface for AWS services integration
 
-### 6. Setup and Deployment
+## 6. Setup and Deployment
 
-#### Local Development
+### 6.1 Local Development
 
 1. **Environment Setup**
 
@@ -161,7 +161,7 @@ The project follows a modular microservices architecture with cloud-native deplo
    python app.py   # Start FastAPI web service
    ```
 
-#### GitHub Actions CI/CD
+### 6.2 GitHub Actions CI/CD
 
 The project includes automated deployment with three stages:
 
@@ -169,16 +169,14 @@ The project includes automated deployment with three stages:
 2. **Continuous Delivery**: Docker image building and push to AWS ECR
 3. **Continuous Deployment**: Automated deployment to EC2 with zero-downtime updates
 
-#### AWS Infrastructure Requirements
+### 6.3 AWS Infrastructure Requirements
 
 - **ECR Repository**: For storing Docker images
 - **EC2 Instance**: For running the production application
 - **S3 Bucket**: Named 'network-security-br' for artifact storage
 - **IAM Roles**: Proper permissions for ECR, S3, and EC2 access
 
-### 7. Future Enhancements
-
-### 7. Project Structure
+## 7. Project Structure
 
 ```text
 network-security/
@@ -204,7 +202,7 @@ network-security/
 └── main.py                       # Training pipeline entry point
 ```
 
-### 8. API Endpoints
+## 8. API Endpoints
 
 The FastAPI application provides the following endpoints:
 
