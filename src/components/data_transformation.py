@@ -11,6 +11,7 @@ from src.logging.logger import logging
 
 from src.constant.training_pipeline import TARGET_COLUMN
 from src.constant.training_pipeline import DATA_TRANSFORMATION_IMPUTER_PARAMS
+from src.constant.training_pipeline import MODEL_FILE_NAME, PREPROCESSING_OBJECT_FILE_NAME, FINAL_MODEL_DIR
 from src.entity.artifact_entity import DataValidationArtifact, DataTransformationArtifact
 from src.entity.config_entity import DataTransfomationConfig
 
@@ -88,7 +89,9 @@ class DataTransformation:
             save_numpy_array_data(self.data_transformation_config.transformed_test_file_path, array=test_arr)
             save_object(self.data_transformation_config.transformed_object_file_path, preprocessor_obj)
 
-            save_object('model/preprocessor.pkl', preprocessor_obj)
+            preprocessor_file_path = os.path.join(FINAL_MODEL_DIR, PREPROCESSING_OBJECT_FILE_NAME)
+
+            save_object(preprocessor_file_path, preprocessor_obj)
 
             data_transformation_artifact = DataTransformationArtifact(
                 transformed_object_file_path=self.data_transformation_config.transformed_object_file_path,

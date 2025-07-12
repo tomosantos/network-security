@@ -19,6 +19,10 @@ SCHEMA_FILE_PATH = os.path.join('schema', 'schema.yaml')
 
 SAVED_MODEL_DIR = os.path.join('saved_models')
 MODEL_FILE_NAME: str = 'model.pkl'
+PREPROCESSING_OBJECT_FILE_NAME: str = 'preprocessor.pkl'
+FINAL_MODEL_DIR: str = 'model'
+OUTPUT_FILE_NAME: str = 'output.csv'
+OUTPUT_FILE_PATH: str = os.path.join('result', 'output')
 
 """
 Data Ingestion related constant start with DATA_INGESTION VAR NAME
@@ -59,7 +63,6 @@ DATA_TRANSFORMATION_IMPUTER_PARAMS: dict = {
 
 DATA_TRANSFORMATION_TRAIN_FILE_PATH: str = 'train.npy'
 DATA_TRANSFORMATION_TEST_FILE_PATH: str = 'test.npy'
-PREPROCESSING_OBJECT_FILE_NAME = 'preprocessing.pkl'
 
 """
 Model Trainer related constant start with MODEL TRAINER VAR NAME
