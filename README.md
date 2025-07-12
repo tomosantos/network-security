@@ -61,7 +61,7 @@ The project follows a modular microservices architecture with cloud-native deplo
 
 ![Data Transformation](assets/data-transformation.png)
 
-#### 3.4 Model Trainer
+### 3.4 Model Trainer
 
 - **Multi-Algorithm Training**: Support for multiple ML algorithms (Random Forest, Gradient Boosting, etc.)
 - **Hyperparameter Tuning**: Automated parameter optimization for best performance
