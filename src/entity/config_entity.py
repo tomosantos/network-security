@@ -3,9 +3,6 @@ import os
 from datetime import datetime
 from src.constant import training_pipeline
 
-print(training_pipeline.PIPELINE_NAME)
-print(training_pipeline.ARTIFACT_DIR)
-
 
 class TrainingPipelineConfig:
     def __init__(self, timestamp=datetime.now()):
@@ -14,6 +11,7 @@ class TrainingPipelineConfig:
         self.artifact_name = training_pipeline.ARTIFACT_DIR
         self.artifact_dir = os.path.join(self.artifact_name, timestamp)
         self.timestamp: str = timestamp
+        self.model_dir = training_pipeline.FINAL_MODEL_DIR
 
 
 class DataIngestionConfig:
